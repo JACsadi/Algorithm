@@ -1,0 +1,6 @@
+we can use k sort in bubble sort, heap sort , selection sort .
+
+
+we cannot do k sort with merge sort , binary tree etc because we need to sort the whole data to find highest or lowest k elements
+in this cases.
+
