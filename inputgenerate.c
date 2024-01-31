@@ -6,7 +6,7 @@
 #include <time.h>
 int main() {
     int n = 100000;
-    FILE* in  = fopen("input2.txt", "w+");
+    FILE* in  = fopen("input3.txt", "w+");
     srand(time(NULL));
     fprintf(in, "%d ", n);
     while(n--) {

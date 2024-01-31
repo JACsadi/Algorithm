@@ -24,7 +24,7 @@ void k_bubble(int* arr) {
 }
 int main() {
    time_t start, end;
-   FILE* in  = fopen("input2.txt", "r+");
+   FILE* in  = fopen("input3.txt", "r+");
    FILE* out = fopen("output.txt", "w+");
    fscanf(in, "%d", &n);
    k = n;
