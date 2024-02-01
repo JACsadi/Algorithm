@@ -5,12 +5,12 @@
 #include <math.h>
 #include <time.h>
 int main() {
-    int n = 100000;
-    FILE* in  = fopen("input3.txt", "w+");
+    int n = 1000000;
+    FILE* in  = fopen("input4.txt", "w+");
     srand(time(NULL));
     fprintf(in, "%d ", n);
     while(n--) {
-         int r = rand() % 10001; // inputs willhave the range from 0 to 10001
+         int r = rand() % 100001; // inputs willhave the range from 0 to 10001
           fprintf(in, "%d ", r);
     }
     fclose(in);
