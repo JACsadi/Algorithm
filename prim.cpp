@@ -37,6 +37,9 @@ int main() {
     g[v].adj[g[v].edge -1] = u;
     g[v].val[g[v].edge -1] = w;
    }
+   clock_t start = clock();
+   int t = 50000;
+   while(t--) {
    priority_queue<pair<int,pair<int,int>>,vector<pair<int,pair<int,int>>>, greater<pair<int,pair<int,int>>>> pq;
    int currennode = 1; //preselect
    int visnode = 0;
@@ -50,13 +53,15 @@ int main() {
         pair<int,pair<int,int>> top = pq.top();
         pq.pop();
         if(!g[top.second.second].vis) {
-            printf("%d %d\n", top.second.first, top.second.second);
+          if(t==49999)  printf("%d %d\n", top.second.first, top.second.second);
             currennode = top.second.second;
             mst += top.first;
             break;
         } 
         }
    }
-   printf("MST == %d", mst);
+   if(t==49999)  printf("MST == %d\n", mst);
+   }
+    printf ( "execution time for 50000 executions - %f\n", ( (double)clock() - start ) / (CLOCKS_PER_SEC) );
   return 0;
 }
