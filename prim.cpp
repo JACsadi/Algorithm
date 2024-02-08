@@ -8,22 +8,38 @@
 #include <queue>
 using namespace std;
 #define f(i, n) for (int i = 0; i < n; i++)
+#define MAX_SIZE 10
 typedef struct node {
   int edge;
   int* adj;
   int* val;
   int vis;
 } node;
-node g[10];
+int n,m,mst;
+node g[MAX_SIZE];
+void struct_ini();
+void take_input();
+void prim(int);
 int main() {
-  int n = 7,m=9,mst = 0;
-  f(i,10) {
+   n = 7;m=9;mst = 0;
+   struct_ini();
+   take_input();
+   clock_t start = clock();
+   int t = 50000;
+   prim(t);
+   printf ( "execution time for %d executions - %f\n", t, ( (double)clock() - start ) / (CLOCKS_PER_SEC) );
+  return 0;
+}
+void struct_ini() {
+f(i,MAX_SIZE) {
     g[i].edge = 0;
     g[i].adj = (int*) malloc(0);
     g[i].vis = 0;
     g[i].val = (int*) malloc(0);
    }
-   f(i,m) {
+}
+void take_input() {
+    f(i,m) {
     int u,v,w;
     scanf("%d %d %d", &u,&v,&w);
     g[u].edge++;
@@ -37,9 +53,9 @@ int main() {
     g[v].adj[g[v].edge -1] = u;
     g[v].val[g[v].edge -1] = w;
    }
-   clock_t start = clock();
-   int t = 50000;
-   while(t--) {
+}
+void prim(int t){
+   f(i,t) {
    priority_queue<pair<int,pair<int,int>>,vector<pair<int,pair<int,int>>>, greater<pair<int,pair<int,int>>>> pq;
    int currennode = 1; //preselect
    int visnode = 0;
@@ -53,15 +69,13 @@ int main() {
         pair<int,pair<int,int>> top = pq.top();
         pq.pop();
         if(!g[top.second.second].vis) {
-          if(t==49999)  printf("%d %d\n", top.second.first, top.second.second);
+          if(i == 0)  printf("%d %d\n", top.second.first, top.second.second);
             currennode = top.second.second;
             mst += top.first;
             break;
         } 
         }
    }
-   if(t==49999)  printf("MST == %d\n", mst);
+   if(i == 0)  printf("MST == %d\n", mst);
    }
-    printf ( "execution time for 50000 executions - %f\n", ( (double)clock() - start ) / (CLOCKS_PER_SEC) );
-  return 0;
 }
