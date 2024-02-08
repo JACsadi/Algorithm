@@ -5,8 +5,8 @@
 #include <math.h>
 #include <time.h>
 int main() {
-    int n = 1000000;
-    FILE* in  = fopen("input4.txt", "w+");
+    int n = 300;
+    FILE* in  = fopen("input6.txt", "w+");
     srand(time(NULL));
     fprintf(in, "%d ", n);
     while(n--) {
